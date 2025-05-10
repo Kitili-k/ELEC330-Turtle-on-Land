@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+    <ros2_control name="URDF1" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+
+       <!-- Joint 2: Front_right1_joint -->
+      <joint name="Front_right1_joint">
+        <command_interface name="velocity">
+          <param name="min">-999</param>
+          <param name="max">999</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+
+       <!-- Joint 3: Front_right2_joint -->
+      <joint name="Front_right2_joint">
+        <command_interface name="velocity">
+          <param name="min">-999</param>
+          <param name="max">999</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+       <!-- Joint 3: Back_right1_joint-->
+      <joint name="Back_right1_joint">
+        <command_interface name="velocity">
+          <param name="min">-999</param>
+          <param name="max">999</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+
+      <!-- Joint 5: Back_right2_joint -->
+      <joint name="Back_right2_joint">
+        <command_interface name="velocity">
+          <param name="min">-999</param>
+          <param name="max">999</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <!-- Joint 6: Front_left1_joint -->
+      <joint name="Front_left1_joint">
+        <command_interface name="velocity">
+          <param name="min">-999</param>
+          <param name="max">999</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+       <!-- Joint 7: Front_left2_joint -->
+      <joint name="Front_left2_joint">
+        <command_interface name="velocity">
+          <param name="min">-999</param>
+          <param name="max">999</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+       <!-- Joint 8: Back_left1_joint -->
+      <joint name="Back_left1_joint">
+        <command_interface name="velocity">
+          <param name="min">-999</param>
+          <param name="max">999</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <!-- Joint 9: Back_left2_joint -->
+      <joint name="Back_left2_joint">
+        <command_interface name="velocity">
+          <param name="min">-999</param>
+          <param name="max">999</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+    </ros2_control>
+
+</robot>

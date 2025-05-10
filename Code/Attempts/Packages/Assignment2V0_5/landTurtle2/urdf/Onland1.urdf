@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Onland1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<link name="base_footprint">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <box size="0.001 0.001 0.001" />
+        </geometry>
+    </visual>
+</link>
+
+<joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0.001" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+</joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00681811822788861 -3.84661812128772E-05 -0.00222513864249343"
+        rpy="0 0 0" />
+      <mass
+        value="0.376490676794725" />
+      <inertia
+        ixx="0.000319399106891007"
+        ixy="2.99379868832311E-07"
+        ixz="-1.85942042630127E-05"
+        iyy="0.000809102760149014"
+        iyz="4.86278416734269E-08"
+        izz="0.00105347989085106" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Front_right1">
+    <inertial>
+      <origin
+        xyz="0.00808052162964917 0.0449217979633324 -0.00321309252710611"
+        rpy="0 0 0" />
+      <mass
+        value="0.0478422027217928" />
+      <inertia
+        ixx="1.07549991205532E-05"
+        ixy="-1.06732554744789E-06"
+        ixz="-7.7730357900512E-08"
+        iyy="1.15165207395343E-05"
+        iyz="-1.85188487393681E-06"
+        izz="1.53961637057992E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Front_right1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Front_right1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_right1_joint"
+    type="revolute">
+    <origin
+      xyz="0.065905120563842 -0.0384605776591281 0.0289999999999999"
+      rpy="0 0 -2.90426571688811" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_right1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.7854"
+      upper="0.7854"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Front_right2">
+    <inertial>
+      <origin
+        xyz="-0.021021848093744 -0.0218401305507092 -0.00741623880370179"
+        rpy="0 0 0" />
+      <mass
+        value="0.0283675634219841" />
+      <inertia
+        ixx="8.54340601443015E-06"
+        ixy="-6.30807167420187E-06"
+        ixz="1.97748599968732E-07"
+        iyy="2.49526631308493E-05"
+        iyz="-4.9472797372268E-07"
+        izz="3.28648052987208E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Front_right2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Front_right2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_right2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0420569075591256 -0.020373716882811"
+      rpy="0.698131700797741 0 3.14159265358979" />
+    <parent
+      link="Front_right1" />
+    <child
+      link="Front_right2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Back_right1">
+    <inertial>
+      <origin
+        xyz="-0.00871373127566328 -0.0361267566394633 -0.0130527181254355"
+        rpy="0 0 0" />
+      <mass
+        value="0.0471003387502271" />
+      <inertia
+        ixx="8.9391808159085E-06"
+        ixy="-8.30184045883693E-07"
+        ixz="-1.32782544003822E-07"
+        iyy="1.22306184558657E-05"
+        iyz="7.45041910577434E-07"
+        izz="1.41312593703319E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Back_right1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Back_right1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_right1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0837677595780109 -0.0400835603852042 0.0290000000000001"
+      rpy="0 0 -0.554759974652648" />
+    <parent
+      link="base_link" />
+    <child
+      link="Back_right1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.7854"
+      upper="0.7854"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Back_right2">
+    <inertial>
+      <origin
+        xyz="-0.0341711377701623 -0.0241171820068243 0.001154975874834"
+        rpy="0 0 0" />
+      <mass
+        value="0.00999009765522167" />
+      <inertia
+        ixx="2.08331821365722E-06"
+        ixy="-1.50841082576915E-06"
+        ixz="5.84770980252225E-08"
+        iyy="3.79958639798917E-06"
+        iyz="-6.85144283002588E-08"
+        izz="5.7805743959628E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Back_right2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Back_right2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_right2_joint"
+    type="revolute">
+    <origin
+      xyz="0.0225373319057556 -0.0205582947794068 -0.0323466257195996"
+      rpy="0.698131700797726 0 0" />
+    <parent
+      link="Back_right1" />
+    <child
+      link="Back_right2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Front_left1">
+    <inertial>
+      <origin
+        xyz="0.00808052159056422 -0.0449213462125582 -0.00321271349754684"
+        rpy="0 0 0" />
+      <mass
+        value="0.0478422028624038" />
+      <inertia
+        ixx="1.07549991380887E-05"
+        ixy="1.06753850252779E-06"
+        ixz="-7.755171013591E-08"
+        iyy="1.15158632373778E-05"
+        iyz="1.85200083864815E-06"
+        izz="1.53968212885557E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Front_left1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Front_left1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_left1_joint"
+    type="revolute">
+    <origin
+      xyz="0.065905120563842 0.0384605776591282 0.0289999999999999"
+      rpy="0 0 2.90426571688811" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_left1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.7854"
+      upper="0.7854"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Front_left2">
+    <inertial>
+      <origin
+        xyz="0.0210209202048704 -0.0218404061543293 -0.0074163348118039"
+        rpy="0 0 0" />
+      <mass
+        value="0.0283694753081617" />
+      <inertia
+        ixx="8.5444443168284E-06"
+        ixy="6.30748532171341E-06"
+        ixz="-1.97842747109685E-07"
+        iyy="2.4952474398111E-05"
+        iyz="-4.94861686000644E-07"
+        izz="3.28655979189005E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Front_left2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Front_left2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_left2_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0420569075591256 -0.020373716882811"
+      rpy="0.698131700797741 0 0" />
+    <parent
+      link="Front_left1" />
+    <child
+      link="Front_left2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Back_left1">
+    <inertial>
+      <origin
+        xyz="-0.00871373127063055 0.0361262978079295 -0.0130523331260205"
+        rpy="0 0 0" />
+      <mass
+        value="0.047100338766454" />
+      <inertia
+        ixx="8.93918081866271E-06"
+        ixy="8.30396963317425E-07"
+        ixz="-1.32961197398557E-07"
+        iyy="1.22299609471971E-05"
+        iyz="-7.45157850972274E-07"
+        izz="1.41319168895854E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Back_left1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Back_left1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_left1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0837677595780109 0.0400835603852042 0.0290000000000001"
+      rpy="0 0 0.554759974652648" />
+    <parent
+      link="base_link" />
+    <child
+      link="Back_left1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.7854"
+      upper="0.7854"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Back_left2">
+    <inertial>
+      <origin
+        xyz="-0.00273750917277035 0.0417326564161763 0.00115414123659353"
+        rpy="0 0 0" />
+      <mass
+        value="0.00999226374716188" />
+      <inertia
+        ixx="4.59509751436122E-06"
+        ixy="5.23970897600539E-07"
+        ixz="9.01736609617561E-08"
+        iyy="1.28722119013764E-06"
+        iyz="-2.45268383708239E-09"
+        izz="5.77989744315876E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Back_left2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Back_left2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_left2_joint"
+    type="revolute">
+    <origin
+      xyz="0.0225373319057557 0.0205582947794068 -0.0323466257195996"
+      rpy="-0.485580480160512 0.523309333004977 0.758177666057813" />
+    <parent
+      link="Back_left1" />
+    <child
+      link="Back_left2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Sensor_link">
+    <inertial>
+      <origin
+        xyz="-2.25214372452731E-05 0.103607028948444 -0.00174327710854269"
+        rpy="0 0 0" />
+      <mass
+        value="0.656382274118652" />
+      <inertia
+        ixx="0.00398589796619268"
+        ixy="6.81523498247126E-07"
+        ixz="7.5942173311683E-08"
+        iyy="0.00261594481266056"
+        iyz="4.49451871288875E-05"
+        izz="0.00597901119561345" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Sensor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://landTurtle2/meshes/visual/Sensor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="sensor"
+    type="fixed">
+    <origin
+      xyz="0.0975 0 0.005"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Sensor_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <xacro:include filename="$(find landTurtle2)/configfiles/ros2_control.xacro" />
+</robot>

@@ -1,0 +1,570 @@
+<?xml version="1.0" ?>
+<sdf version='1.11'>
+  <model name='Onland1'>
+    <link name='base_footprint'>
+      <inertial>
+        <pose>-0.0063662267801659544 -2.8575276448950229e-05 0.0022585393228131819 0 0 0</pose>
+        <mass>1.0328729509133769</mass>
+        <inertia>
+          <ixx>0.0029425338401379269</ixx>
+          <ixy>-3.898237266515236e-07</ixy>
+          <ixz>-6.4472036763859103e-05</ixz>
+          <iyy>0.0048023115586267326</iyy>
+          <iyz>1.039913828623274e-07</iyz>
+          <izz>0.0070326121241304478</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 0.001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_footprint_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.001</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual_1'>
+        <pose>0 0 0.001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <visualize>true</visualize>
+        <topic>imu</topic>
+      </sensor>
+    </link>
+    <joint name='Back_left1_joint' type='revolute'>
+      <pose relative_to='base_footprint'>-0.0837677595780109 0.040083560385204199 0.0300000000000001 0 0 0.55475997465264804</pose>
+      <parent>base_footprint</parent>
+      <child>Back_left1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78539999999999999</lower>
+          <upper>0.78539999999999999</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Back_left1'>
+      <pose relative_to='Back_left1_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0087137312706305498 0.036126297807929503 -0.013052333126020501 0 0 0</pose>
+        <mass>0.047100338766454003</mass>
+        <inertia>
+          <ixx>8.9391808186627097e-06</ixx>
+          <ixy>8.3039696331742498e-07</ixy>
+          <ixz>-1.32961197398557e-07</ixz>
+          <iyy>1.2229960947197099e-05</iyy>
+          <iyz>-7.4515785097227404e-07</iyz>
+          <izz>1.41319168895854e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Back_left1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Back_left1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Back_left1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Back_left1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Back_left2_joint' type='revolute'>
+      <pose relative_to='Back_left1'>0.0225373319057557 0.020558294779406801 -0.032346625719599599 -0.48558048016051197 0.52330933300497706 0.75817766605781323</pose>
+      <parent>Back_left1</parent>
+      <child>Back_left2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26179999999999998</lower>
+          <upper>0.26179999999999998</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Back_left2'>
+      <pose relative_to='Back_left2_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0027375091727703501 0.041732656416176302 0.0011541412365935299 0 0 0</pose>
+        <mass>0.0099922637471618805</mass>
+        <inertia>
+          <ixx>4.5950975143612201e-06</ixx>
+          <ixy>5.2397089760053902e-07</ixy>
+          <ixz>9.0173660961756104e-08</ixz>
+          <iyy>1.28722119013764e-06</iyy>
+          <iyz>-2.45268383708239e-09</iyz>
+          <izz>5.7798974431587599e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='Back_left2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Back_left2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Back_left2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Back_left2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Back_right1_joint' type='revolute'>
+      <pose relative_to='base_footprint'>-0.0837677595780109 -0.040083560385204199 0.0300000000000001 0 0 -0.55475997465264804</pose>
+      <parent>base_footprint</parent>
+      <child>Back_right1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78539999999999999</lower>
+          <upper>0.78539999999999999</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Back_right1'>
+      <pose relative_to='Back_right1_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0087137312756632793 -0.036126756639463298 -0.0130527181254355 0 0 0</pose>
+        <mass>0.047100338750227101</mass>
+        <inertia>
+          <ixx>8.9391808159085007e-06</ixx>
+          <ixy>-8.3018404588369301e-07</ixy>
+          <ixz>-1.3278254400382199e-07</ixz>
+          <iyy>1.2230618455865701e-05</iyy>
+          <iyz>7.4504191057743395e-07</iyz>
+          <izz>1.4131259370331899e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Back_right1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Back_right1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Back_right1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Back_right1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Back_right2_joint' type='revolute'>
+      <pose relative_to='Back_right1'>0.0225373319057556 -0.020558294779406801 -0.032346625719599599 0.69813170079772602 0 0</pose>
+      <parent>Back_right1</parent>
+      <child>Back_right2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26179999999999998</lower>
+          <upper>0.26179999999999998</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Back_right2'>
+      <pose relative_to='Back_right2_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.034171137770162299 -0.024117182006824299 0.0011549758748340001 0 0 0</pose>
+        <mass>0.0099900976552216702</mass>
+        <inertia>
+          <ixx>2.08331821365722e-06</ixx>
+          <ixy>-1.50841082576915e-06</ixy>
+          <ixz>5.8477098025222497e-08</ixz>
+          <iyy>3.7995863979891698e-06</iyy>
+          <iyz>-6.8514428300258798e-08</iyz>
+          <izz>5.7805743959628001e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='Back_right2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Back_right2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Back_right2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Back_right2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Front_left1_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.065905120563841998 0.038460577659128199 0.029999999999999898 0 0 2.9042657168881099</pose>
+      <parent>base_footprint</parent>
+      <child>Front_left1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78539999999999999</lower>
+          <upper>0.78539999999999999</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Front_left1'>
+      <pose relative_to='Front_left1_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0080805215905642193 -0.044921346212558201 -0.00321271349754684 0 0 0</pose>
+        <mass>0.047842202862403801</mass>
+        <inertia>
+          <ixx>1.07549991380887e-05</ixx>
+          <ixy>1.0675385025277901e-06</ixy>
+          <ixz>-7.7551710135909995e-08</ixz>
+          <iyy>1.15158632373778e-05</iyy>
+          <iyz>1.8520008386481499e-06</iyz>
+          <izz>1.5396821288555701e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_left1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Front_left1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_left1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Front_left1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Front_left2_joint' type='revolute'>
+      <pose relative_to='Front_left1'>0 -0.042056907559125598 -0.020373716882811001 0.69813170079774101 0 0</pose>
+      <parent>Front_left1</parent>
+      <child>Front_left2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26179999999999998</lower>
+          <upper>0.26179999999999998</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Front_left2'>
+      <pose relative_to='Front_left2_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0210209202048704 -0.021840406154329299 -0.0074163348118039003 0 0 0</pose>
+        <mass>0.028369475308161699</mass>
+        <inertia>
+          <ixx>8.5444443168283992e-06</ixx>
+          <ixy>6.3074853217134099e-06</ixy>
+          <ixz>-1.9784274710968501e-07</ixz>
+          <iyy>2.4952474398110999e-05</iyy>
+          <iyz>-4.9486168600064401e-07</iyz>
+          <izz>3.2865597918900499e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_left2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Front_left2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_left2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Front_left2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Front_right1_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.065905120563841998 -0.038460577659128102 0.029999999999999898 0 0 -2.9042657168881099</pose>
+      <parent>base_footprint</parent>
+      <child>Front_right1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78539999999999999</lower>
+          <upper>0.78539999999999999</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Front_right1'>
+      <pose relative_to='Front_right1_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0080805216296491698 0.044921797963332399 -0.0032130925271061099 0 0 0</pose>
+        <mass>0.047842202721792799</mass>
+        <inertia>
+          <ixx>1.07549991205532e-05</ixx>
+          <ixy>-1.06732554744789e-06</ixy>
+          <ixz>-7.7730357900511994e-08</ixz>
+          <iyy>1.15165207395343e-05</iyy>
+          <iyz>-1.8518848739368101e-06</iyz>
+          <izz>1.5396163705799201e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_right1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Front_right1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_right1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Front_right1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Front_right2_joint' type='revolute'>
+      <pose relative_to='Front_right1'>0 0.042056907559125598 -0.020373716882811001 0.69813170079774101 0 3.14159265358979</pose>
+      <parent>Front_right1</parent>
+      <child>Front_right2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26179999999999998</lower>
+          <upper>0.26179999999999998</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Front_right2'>
+      <pose relative_to='Front_right2_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.021021848093744001 -0.0218401305507092 -0.0074162388037017904 0 0 0</pose>
+        <mass>0.028367563421984099</mass>
+        <inertia>
+          <ixx>8.5434060144301498e-06</ixx>
+          <ixy>-6.3080716742018701e-06</ixy>
+          <ixz>1.97748599968732e-07</ixz>
+          <iyy>2.4952663130849299e-05</iyy>
+          <iyz>-4.9472797372267998e-07</iyz>
+          <izz>3.2864805298720803e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_right2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Front_right2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_right2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/visual/Front_right2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Sensor' type='fixed'>
+      <pose relative_to='Sensor_link'>0 0 0 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>Sensor_l1</child>
+    </joint>
+    <link name= 'Sensor_l1'>
+      <pose relative_to='Sensor'>0 0 0 0 0 0</pose>
+      <sensor name='gpu_lidar' type='gpu_lidar'>"
+        <topic>lidar</topic>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+              <horizontal>
+                  <samples>640</samples>
+                  <resolution>1</resolution>
+                  <min_angle>-1.396263</min_angle>
+                  <max_angle>1.396263</max_angle>
+              </horizontal>
+              <vertical>
+                  <samples>1</samples>
+                  <resolution>0.01</resolution>
+                  <min_angle>0</min_angle>
+                  <max_angle>0</max_angle>
+              </vertical>
+          </scan>
+          <range>
+              <min>0.08</min>
+              <max>100.0</max>
+              <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>
+      </sensor>
+      <sensor name="boundingbox_camera" type="boundingbox_camera">
+          <topic>camera1</topic>
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+              <width>800</width>
+              <height>600</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>10</far>
+            </clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>30</update_rate>
+          <visualize>true</visualize>
+      </sensor>
+    </link>
+    <frame name='sensor' attached_to='base_link'>
+      <pose>0.097500000000000003 0 0.0050000000000000001 0 0 1.5708</pose>
+    </frame>
+    <frame name='Sensor_link' attached_to='sensor'>
+      <pose>0 0 0 0 0 -1.57</pose>
+    </frame>
+    <frame name='base_footprint_joint' attached_to='base_footprint'>
+      <pose>0 0 0.001 0 0 0</pose>
+    </frame>
+    <frame name='base_link' attached_to='base_footprint_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    
+    <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher"/>
+
+    <plugin
+        filename="ignition-gazebo-pose-publisher-system"
+        name="ignition::gazebo::systems::PosePublisher">
+        <publish_link_pose>true</publish_link_pose>
+
+        <use_pose_vector_msg>true</use_pose_vector_msg>
+    </plugin>
+    
+  </model>
+</sdf>

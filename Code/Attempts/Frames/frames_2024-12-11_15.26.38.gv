@@ -1,0 +1,17 @@
+digraph G {
+"base_link" -> "Back_left1"[label=" Broadcaster: default_authority\nAverage rate: 19.303\nBuffer length: 2.901\nMost recent transform: 1733930798.605982\nOldest transform: 1733930795.704947\n"];
+"map" -> "base_link"[label=" Broadcaster: default_authority\nAverage rate: 10.4\nBuffer length: 2.5\nMost recent transform: 1733930798.54712\nOldest transform: 1733930796.047171\n"];
+"Back_left1" -> "Back_left2"[label=" Broadcaster: default_authority\nAverage rate: 10.341\nBuffer length: 2.901\nMost recent transform: 1733930798.605982\nOldest transform: 1733930795.704947\n"];
+"base_link" -> "Back_right1"[label=" Broadcaster: default_authority\nAverage rate: 19.303\nBuffer length: 2.901\nMost recent transform: 1733930798.605982\nOldest transform: 1733930795.704947\n"];
+"Back_right1" -> "Back_right2"[label=" Broadcaster: default_authority\nAverage rate: 10.341\nBuffer length: 2.901\nMost recent transform: 1733930798.605982\nOldest transform: 1733930795.704947\n"];
+"base_link" -> "Front_left1"[label=" Broadcaster: default_authority\nAverage rate: 10.341\nBuffer length: 2.901\nMost recent transform: 1733930798.605982\nOldest transform: 1733930795.704947\n"];
+"Front_left1" -> "Front_left2"[label=" Broadcaster: default_authority\nAverage rate: 10.341\nBuffer length: 2.901\nMost recent transform: 1733930798.605982\nOldest transform: 1733930795.704947\n"];
+"base_link" -> "Front_right1"[label=" Broadcaster: default_authority\nAverage rate: 10.341\nBuffer length: 2.901\nMost recent transform: 1733930798.605982\nOldest transform: 1733930795.704947\n"];
+"Front_right1" -> "Front_right2"[label=" Broadcaster: default_authority\nAverage rate: 10.341\nBuffer length: 2.901\nMost recent transform: 1733930798.605982\nOldest transform: 1733930795.704947\n"];
+"base_link" -> "Sensor_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "velodyne"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1733930798.627719"[ shape=plaintext ] ;
+}->"map";
+}

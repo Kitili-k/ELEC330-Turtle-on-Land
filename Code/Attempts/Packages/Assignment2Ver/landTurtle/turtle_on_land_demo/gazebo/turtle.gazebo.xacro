@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!-- =============== Gazebo =============== -->
+    <gazebo>
+      <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+        <render_engine>ogre2</render_engine>
+      </plugin>
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(find turtle_on_land_demo)/config/joint_controllers.yaml</parameters>
+      </plugin>
+    </gazebo>
+
+    <gazebo reference="Sensor_link">
+      <sensor name="gpu_lidar" type="gpu_lidar">
+       <pose>0 0 0.5 0 0 0</pose>
+          <gz_frame_id>Sensor_link</gz_frame_id>
+          <topic>scan</topic>
+          <update_rate>5</update_rate>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>270</samples>
+                <resolution>1</resolution>
+                <min_angle>-3.14</min_angle>
+                <max_angle>3.14</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>45</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.349066</min_angle>
+                <max_angle>0.785</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.2</min>
+              <max>30.0</max>
+              <resolution>0.01</resolution>
+            </range>
+            <frame_id>Sensor_link</frame_id>
+          </lidar>
+          <alwaysOn>true</alwaysOn>
+          <visualize>true</visualize>
+        <sensor name="imu_sensor" type="imu">
+          <always_on>1</always_on>
+          <update_rate>1</update_rate>
+          <visualize>true</visualize>
+        <topic>imu</topic>
+      </sensor>
+      </sensor>
+      <sensor name="gpu2_lidar" type="gpu_lidar">
+          <gz_frame_id>Sensor_link</gz_frame_id>
+          <topic>scan2</topic>
+          <update_rate>5</update_rate>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>500</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.</min_angle>
+                <max_angle>0.785</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <resolution>1</resolution>
+                <min_angle>-0</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.2</min>
+              <max>30.0</max>
+              <resolution>0.01</resolution>
+            </range>
+            <frame_id>Sensor_link</frame_id>
+          </lidar>
+          <alwaysOn>true</alwaysOn>
+          <visualize>true</visualize>
+      </sensor>
+    </gazebo>
+
+    <gazebo reference="Camera_link">
+      <sensor name="boundingbox_camera" type="boundingbox_camera">
+          <topic>camera</topic>
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+              <width>800</width>
+              <height>600</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>10</far>
+            </clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>30</update_rate>
+          <visualize>true</visualize>
+      </sensor>
+ 
+    </gazebo>
+
+   
+    
+</robot>

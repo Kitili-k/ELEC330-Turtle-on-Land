@@ -1,0 +1,18 @@
+digraph G {
+"base_link" -> "velodyne"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_footprint" -> "base_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"map" -> "base_footprint"[label=" Broadcaster: default_authority\nAverage rate: 10.204\nBuffer length: 4.9\nMost recent transform: 1733930952.753721\nOldest transform: 1733930947.85372\n"];
+"base_link" -> "Sensor_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "Back_left1"[label=" Broadcaster: default_authority\nAverage rate: 20.199\nBuffer length: 5.0\nMost recent transform: 1733930952.808444\nOldest transform: 1733930947.80831\n"];
+"Back_left1" -> "Back_left2"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1733930952.808444\nOldest transform: 1733930947.80831\n"];
+"base_link" -> "Back_right1"[label=" Broadcaster: default_authority\nAverage rate: 20.199\nBuffer length: 5.0\nMost recent transform: 1733930952.808444\nOldest transform: 1733930947.80831\n"];
+"Back_right1" -> "Back_right2"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1733930952.808444\nOldest transform: 1733930947.80831\n"];
+"base_link" -> "Front_left1"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1733930952.808444\nOldest transform: 1733930947.80831\n"];
+"Front_left1" -> "Front_left2"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1733930952.808444\nOldest transform: 1733930947.80831\n"];
+"base_link" -> "Front_right1"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1733930952.808444\nOldest transform: 1733930947.80831\n"];
+"Front_right1" -> "Front_right2"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1733930952.808444\nOldest transform: 1733930947.80831\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1733930952.854117"[ shape=plaintext ] ;
+}->"map";
+}

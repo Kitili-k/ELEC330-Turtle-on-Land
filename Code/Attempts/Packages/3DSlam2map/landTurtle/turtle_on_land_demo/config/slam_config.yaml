@@ -1,0 +1,39 @@
+slam_toolbox:
+  ros__parameters:
+    
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link
+    scan_frame: Sensor_link
+
+    
+    scan_topic: /scan2
+    use_scan_matching: true
+    use_scan_barycenter: true
+
+    use_pose_extrapolator: false  
+    max_laser_range: 20.0
+    minimum_time_interval: 0.2
+    transform_timeout: 0.2
+    update_size: 5.0  
+    resolution: 0.05  
+
+  
+    loop_search_space: 8.0
+    loop_match_minimum_chain_size: 3
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_coarse: 0.35
+    loop_match_minimum_response_fine: 0.45
+
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: HuberLoss
+
+
+    enable_interactive_mode: false
+    debug_logging: false
+    throttle_scans: 1
+    publish_frame_throttled: false

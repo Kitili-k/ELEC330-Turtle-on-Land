@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <world name="default">
+        <!-- Sun Light Source -->
+        <physics name="1ms" type="ode">
+            <!-- - Sets the simulation step size to 0.001 seconds -->
+            <max_step_size>0.001</max_step_size>
+            <!-- - Configures the simulation to run at real-time speed -->
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>-0.5 0.5 -1</direction>
+        </light>
+
+        <!-- Sandy Terrain -->
+        <model name="sandy_terrain">
+            <static>true</static>
+            <link name="sand_surface">
+                <collision name="collision">
+                    <geometry>
+                        <mesh>
+                            <uri>model://turtle_on_land_demo/world/SANDY_TERRAINII.dae</uri>
+                        </mesh>
+                    </geometry>
+                    
+                </collision>
+                <visual name="visual">
+                    <geometry>
+                        <mesh>
+                            <uri>model://turtle_on_land_demo/world/SANDY_TERRAINII.dae</uri>
+                        </mesh>
+                    </geometry>
+                </visual>
+            </link>
+        </model>
+    </world>
+</sdf>

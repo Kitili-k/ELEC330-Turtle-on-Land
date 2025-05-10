@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="world_demo">
+    <!-- Define the physics properties for the simulation world -->
+    <physics name="1ms" type="ode">
+      <!-- Maximum step size for simulation iterations -->
+      <max_step_size>0.001</max_step_size>
+      <!-- Real-time factor to control simulation speed relative to real time -->
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <!-- Load the physics system plugin -->
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+
+    <!-- Load the user commands system plugin -->
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+
+    <!-- Load the scene broadcaster system plugin -->
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+
+    <!-- Load the sensors system plugin -->
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <!-- Specify the rendering engine for the sensors -->
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- Load the IMU (Inertial Measurement Unit) system plugin -->
+    <plugin filename="gz-sim-imu-system"
+        name="gz::sim::systems::Imu">
+    </plugin>
+
+    <!-- Define a directional light source named 'sun' -->
+    <light type="directional" name="sun">
+      <!-- Enable or disable shadow casting for the light -->
+      <cast_shadows>true</cast_shadows>
+      <!-- Position and orientation of the light source -->
+      <pose>0 0 10 0 0 0</pose>
+      <!-- Diffuse color of the light (RGBA) -->
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <!-- Specular color of the light (RGBA) -->
+      <specular>0.2 0.2 0.2 1</specular>
+    </light>
+
+  </world>
+</sdf>

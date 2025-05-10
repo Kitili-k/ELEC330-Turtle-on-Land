@@ -1,0 +1,498 @@
+<sdf version='1.11'>
+  <model name='URDF1'>
+    <link name='base_footprint'>
+      <inertial>
+        <pose>-0.0076873000000000002 -3.8825000000000002e-05 -0.0012692000000000001 0 0 0</pose>
+        <mass>0.37301000000000001</mass>
+        <inertia>
+          <ixx>0.00031923999999999988</ixx>
+          <ixy>2.9938000000000002e-07</ixy>
+          <ixz>-1.8593999999999998e-05</ixz>
+          <iyy>0.00078244000000000013</iyy>
+          <iyz>4.8627999999999997e-08</iyz>
+          <izz>0.0010267</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 0.001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_footprint_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.001</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual_1'>
+        <pose>0 0 0.001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Back_left1_joint' type='revolute'>
+      <pose relative_to='base_footprint'>-0.083767999999999995 0.040084000000000002 0.029999999999999999 0 0 0.24199000000000001</pose>
+      <parent>base_footprint</parent>
+      <child>Back_left1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78539999999999999</lower>
+          <upper>0.78539999999999999</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Back_left1'>
+      <pose relative_to='Back_left1_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0087136999999999996 0.036125999999999998 -0.013051999999999999 0 0 0</pose>
+        <mass>0.047100000000000003</mass>
+        <inertia>
+          <ixx>8.9392000000000007e-06</ixx>
+          <ixy>8.3040000000000002e-07</ixy>
+          <ixz>-1.3295999999999999e-07</ixz>
+          <iyy>1.223e-05</iyy>
+          <iyz>-7.4516000000000004e-07</iyz>
+          <izz>1.4132e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Back_left1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Back_left1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Back_left1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Back_left1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Back_left2_joint' type='revolute'>
+      <pose relative_to='Back_left1'>0 0.030582000000000002 -0.032411000000000002 -0.25186999999999993 0.65834999999999988 1.1726000000000001</pose>
+      <parent>Back_left1</parent>
+      <child>Back_left2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26179999999999998</lower>
+          <upper>0.26179999999999998</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Back_left2'>
+      <pose relative_to='Back_left2_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.010585000000000001 0.017092 -0.0052398000000000002 0 0 0</pose>
+        <mass>0.0099916999999999992</mass>
+        <inertia>
+          <ixx>4.6202000000000003e-06</ixx>
+          <ixy>-4.3699e-07</ixy>
+          <ixz>8.5958999999999996e-08</ixz>
+          <iyy>1.2622e-06</iyy>
+          <iyz>-2.7328000000000002e-08</iyz>
+          <izz>5.7799999999999997e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='Back_left2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Back_left2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Back_left2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Back_left2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990199983 1 1 1</diffuse>
+          <ambient>0.990199983 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Back_right1_joint' type='revolute'>
+      <pose relative_to='base_footprint'>-0.083767999999999995 -0.040084000000000002 0.029999999999999999 0 0 -0.24199000000000001</pose>
+      <parent>base_footprint</parent>
+      <child>Back_right1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78539999999999999</lower>
+          <upper>0.78539999999999999</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Back_right1'>
+      <pose relative_to='Back_right1_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0087136999999999996 -0.036126999999999999 -0.013053 0 0 0</pose>
+        <mass>0.047100000000000003</mass>
+        <inertia>
+          <ixx>8.9392000000000007e-06</ixx>
+          <ixy>-8.3017999999999999e-07</ixy>
+          <ixz>-1.3278e-07</ixz>
+          <iyy>1.2231e-05</iyy>
+          <iyz>7.4504000000000001e-07</iyz>
+          <izz>1.4131000000000001e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Back_right1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Back_right1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Back_right1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Back_right1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Back_right2_joint' type='revolute'>
+      <pose relative_to='Back_right1'>0 -0.030582000000000002 -0.032411000000000002 0.69813000000000003 0 0</pose>
+      <parent>Back_right1</parent>
+      <child>Back_right2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26179999999999998</lower>
+          <upper>0.26179999999999998</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Back_right2'>
+      <pose relative_to='Back_right2_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.013023 -0.015316 -0.0052396999999999999 0 0 0</pose>
+        <mass>0.0099910999999999993</mass>
+        <inertia>
+          <ixx>1.8331000000000001e-06</ixx>
+          <ixy>-1.3350999999999999e-06</ixy>
+          <ixz>5.2364999999999999e-08</ixz>
+          <iyy>4.0493999999999997e-06</iyy>
+          <iyz>-7.3411999999999996e-08</iyz>
+          <izz>5.7800999999999999e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='Back_right2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Back_right2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Back_right2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Back_right2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990199983 1 1 1</diffuse>
+          <ambient>0.990199983 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Front_left1_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.065905000000000005 0.038461000000000002 0.029999999999999999 0 0 2.1583999999999999</pose>
+      <parent>base_footprint</parent>
+      <child>Front_left1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78539999999999999</lower>
+          <upper>0.78539999999999999</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Front_left1'>
+      <pose relative_to='Front_left1_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0080804999999999991 -0.044921000000000003 -0.0032127000000000002 0 0 0</pose>
+        <mass>0.047842000000000003</mass>
+        <inertia>
+          <ixx>1.0755e-05</ixx>
+          <ixy>1.0674999999999999e-06</ixy>
+          <ixz>-7.7552000000000005e-08</ixz>
+          <iyy>1.1516e-05</iyy>
+          <iyz>1.852e-06</iyz>
+          <izz>1.5396999999999998e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_left1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Front_left1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_left1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Front_left1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Front_left2_joint' type='revolute'>
+      <pose relative_to='Front_left1'>0 -0.042056999999999997 -0.020374 0.69813000000000003 0 0</pose>
+      <parent>Front_left1</parent>
+      <child>Front_left2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26179999999999998</lower>
+          <upper>0.26179999999999998</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Front_left2'>
+      <pose relative_to='Front_left2_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.018449 -0.024055 -0.0074161000000000001 0 0 0</pose>
+        <mass>0.028368999999999998</mass>
+        <inertia>
+          <ixx>1.0151e-05</ixx>
+          <ixy>7.9737999999999998e-06</ixy>
+          <ixz>-2.5212000000000001e-07</ixz>
+          <iyy>2.3348000000000001e-05</iyy>
+          <iyz>-4.6946999999999998e-07</iyz>
+          <izz>3.2867999999999998e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_left2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Front_left2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_left2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Front_left2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Front_right1_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.065905000000000005 -0.038461000000000002 0.029999999999999999 0 0 -2.1583999999999999</pose>
+      <parent>base_footprint</parent>
+      <child>Front_right1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78539999999999999</lower>
+          <upper>0.78539999999999999</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Front_right1'>
+      <pose relative_to='Front_right1_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0080804999999999991 0.044921999999999997 -0.0032131 0 0 0</pose>
+        <mass>0.047842000000000003</mass>
+        <inertia>
+          <ixx>1.0755e-05</ixx>
+          <ixy>-1.0672999999999999e-06</ixy>
+          <ixz>-7.7729999999999995e-08</ixz>
+          <iyy>1.1517e-05</iyy>
+          <iyz>-1.8519e-06</iyz>
+          <izz>1.5396e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_right1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Front_right1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_right1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Front_right1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990199983 1 1 1</diffuse>
+          <ambient>0.990199983 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='Front_right2_joint' type='revolute'>
+      <pose relative_to='Front_right1'>0 0.042056999999999997 -0.020374 0.69812999999999981 8.4703294725430034e-22 -3.1415853071795872</pose>
+      <parent>Front_right1</parent>
+      <child>Front_right2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26179999999999998</lower>
+          <upper>0.26179999999999998</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Front_right2'>
+      <pose relative_to='Front_right2_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.018453000000000001 -0.024053000000000001 -0.0074149000000000003 0 0 0</pose>
+        <mass>0.028365000000000001</mass>
+        <inertia>
+          <ixx>1.0149999999999999e-05</ixx>
+          <ixy>-7.9763000000000002e-06</ixy>
+          <ixz>2.5125999999999999e-07</ixz>
+          <iyy>2.3351000000000001e-05</iyy>
+          <iyz>-4.6908999999999997e-07</iyz>
+          <izz>3.2870999999999997e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_right2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Front_right2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_right2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://turtle_on_land_demo/meshes/visual/Front_right2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990199983 1 1 1</diffuse>
+          <ambient>0.990199983 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/rrbot</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+    <frame name='base_footprint_joint' attached_to='base_footprint'>
+      <pose>0 0 0.001 0 0 0</pose>
+    </frame>
+    <frame name='base_link' attached_to='base_footprint_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>

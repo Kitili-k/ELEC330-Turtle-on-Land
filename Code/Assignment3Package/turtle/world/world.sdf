@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <world name="default">
+        <!-- Sun Light Source -->
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>-0.5 0.5 -1</direction>
+        </light>
+
+        <!-- Sandy Terrain -->
+        <model name="sandy_terrain">
+            <static>true</static>
+            <link name="sand_surface">
+                <collision name="collision">
+                    <geometry>
+                        <mesh>
+                            <uri>file:///home/turtle_on_land/gazebo_ws/src/landTurtle2/worldfile/SANDY_TERRAINII.dae</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                            <ode>
+                                <mu>0.4</mu>
+                                <mu2>0.4</mu2>
+                                <slip1>0.2</slip1>
+                                <slip2>0.2</slip2>
+                            </ode>
+                            <torsional>
+                                <coefficient>0.02</coefficient> <!-- Rolling friction coefficient -->
+                                <use_patch_radius>true</use_patch_radius>
+                                <patch_radius>0.05</patch_radius>
+                                <surface_radius>0.05</surface_radius>
+                                <ode>
+                                    <slip>0.01</slip>
+                                </ode>
+                            </torsional>
+                        </friction>
+                        <bounce>
+                            <restitution_coefficient>0.05</restitution_coefficient>
+                            <threshold>100.0</threshold>
+                        </bounce>
+                        <contact>
+                            <ode>
+                                <soft_cfm>0.1</soft_cfm>     <!-- Increased compressibility -->
+                                <soft_erp>0.1</soft_erp>     <!-- Lower elasticity -->
+                                <kp>500.0</kp>               <!-- Lower stiffness -->
+                                <kd>5.0</kd>                 <!-- Reduced damping -->
+                                <max_vel>0.1</max_vel>
+                                <min_depth>0.01</min_depth>
+                            </ode>
+                        </contact>
+                    </surface>
+                </collision>
+                <visual name="visual">
+                    <geometry>
+                        <mesh>
+                            <uri>file:///home/turtle_on_land/gazebo_ws/src/landTurtle2/worldfile/SANDY_TERRAINII.dae</uri>
+                        </mesh>
+                    </geometry>
+                </visual>
+            </link>
+        </model>
+    </world>
+</sdf>

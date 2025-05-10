@@ -1,0 +1,132 @@
+<sdf version='1.10'>
+  <world name='default'>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='sandy_terrain'>
+      <static>true</static>
+      <link name='sand_surface'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/turtle_on_land/gazebo_worlds/SANDY_TERRAINII.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.40000000000000002</mu>
+                <mu2>0.40000000000000002</mu2>
+                <slip1>0.20000000000000001</slip1>
+                <slip2>0.20000000000000001</slip2>
+              </ode>
+              <torsional>
+                <coefficient>0.02</coefficient>
+                <use_patch_radius>true</use_patch_radius>
+                <patch_radius>0.050000000000000003</patch_radius>
+                <surface_radius>0.050000000000000003</surface_radius>
+                <ode>
+                  <slip>0.01</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0.050000000000000003</restitution_coefficient>
+              <threshold>100</threshold>
+            </bounce>
+            <contact>
+              <ode>
+                <soft_cfm>0.10000000000000001</soft_cfm>
+                <soft_erp>0.10000000000000001</soft_erp>
+                <kp>500</kp>
+                <kd>5</kd>
+                <max_vel>0.10000000000000001</max_vel>
+                <min_depth>0.01</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/turtle_on_land/gazebo_worlds/SANDY_TERRAINII.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='test_sphere'>
+      <static>false</static>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.10000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0.050000000000000003</soft_cfm>
+                <soft_erp>0.20000000000000001</soft_erp>
+              </ode>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <sphere>
+              <radius>0.10000000000000001</radius>
+            </sphere>
+          </geometry>
+        </visual>
+        <pose>0 0 1 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.21807787462375605 -0.048271984157666981 0.20516829978018342 -1.7182881460127526 0.6241334444689095 -0.99688965925541484</pose>
+      <self_collide>false</self_collide>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,779 @@
+<?xml version="1.0"?>
+<!-- Turtle on land URDF file-->
+<robot name="URDF1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Import turtle ros2_control description -->
+  <xacro:include filename="$(find turtle)/src/ros2_control.xacro" />
+
+  <!-- Import turtle gazebo lidar description -->
+  <xacro:include filename="$(find turtle)/gazebo/turtle.gazebo.xacro" />
+  
+  <!--Link1; Turtle Shell bottom-->
+  <link name="base_footprint">
+  <!--Visual description of link-->
+     <inertial>
+        <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
+        <mass value="1.0"/> 
+        <inertia 
+          ixx="0.1" ixy="0.0" ixz="0.0"
+          iyy="0.1" iyz="0.0"
+          izz="0.1"/>
+      </inertial>
+      <visual>
+      <!--Description of origin rotational and position coordinates -->
+          <origin xyz="0 0 0" rpy="0 0 -1.5708" />
+          <geometry>
+            <box size="0.001 0.001 0.001" />
+          </geometry>
+      </visual>
+  </link>
+  <!--Link parameteres are repeated for each link-->
+
+
+  <!--Joint1; fixed joint between Link1 and 2 -->
+  <!--Describes movement of the joint in relation to the two links , fixed, revolute and rotational -->
+  <joint name="base_footprint_joint" type="fixed">
+  <!--Description of joint origin rotational and position coordinates-->
+      <origin xyz="0 0 0.001" rpy="0 0 0" />
+      <!--Parent link defining parent frame-->
+      <parent link="base_footprint"/>
+      <!--Child link defining child frame-->
+      <child link="base_link" />
+      <dynamics damping="0.1" friction="0.01"/>
+  </joint>
+  <!--Joint parameters are the same throughout for each link connection-->
+
+  <!--Link2;Turtle Shell Top-->
+  <link
+    name="base_link">
+    <!--Interial properties-->
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>  <!-- Center the COM -->
+      <mass value="2.0"/>
+      <inertia ixx="0.02" iyy="0.02" izz="0.02"
+              ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+    <!--Origin description-->
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <!--Filepath to STL visual Mesh file-->
+      <geometry>
+        <mesh filename="package://turtle/meshes/visual/base_link.STL"/>
+      </geometry>
+      <material
+        name="">
+        <!--Link Color-->
+        <color 
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <!--Collision parameter for Link-->
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <!--Filepath to STL visual Mesh file-->
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Link3; Front right shoulder-->
+  <link
+    name="Front_right1">
+    <!--Interial properties of Link3-->
+    <inertial>
+      <origin
+        xyz="0.0080805 0.044922 -0.0032131"
+        rpy="0 0 0" />
+        <!--Mass Parameter of Link3-->
+      <mass
+        value="0.047842" />
+      <inertia
+        ixx="1.0755E-05"
+        ixy="-1.0673E-06"
+        ixz="-7.773E-08"
+        iyy="1.1517E-05"
+        iyz="-1.8519E-06"
+        izz="1.5396E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Front_right1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Front_right1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Joint2;Revolute joint between base link and link3-->
+  <joint
+    name="Front_right1_joint"
+    type="revolute">
+    <origin
+      xyz="0.065905 -0.038461 0.029"
+      rpy="0 0 -2.1584" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_right1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.7854"
+      upper="0.7854"
+      effort="2"
+      velocity="5" />
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!--Link4; Froint right flipper-->
+  <link
+    name="Front_right2">
+    <inertial>
+      <origins
+        xyz="-0.018453 -0.024053 -0.0074149"
+        rpy="0 0 0" />
+      <mass
+        value="0.528365" />
+      <inertia
+        ixx="1.015E-05"
+        ixy="-7.9763E-06"
+        ixz="2.5126E-07"
+        iyy="2.3351E-05"
+        iyz="-4.6909E-07"
+        izz="3.2871E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Front_right2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Front_right2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Joint3; revolute joint between Link3 and 4-->
+  <joint
+    name="Front_right2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.042057 -0.020374"
+      rpy="0.69813 0 3.1416" />
+    <parent
+      link="Front_right1" />
+    <child
+      link="Front_right2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="2"
+      velocity="5" />
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!--Link5; Back right shoulder-->
+  <link
+    name="Back_right1">
+    <inertial>
+      <origin
+        xyz="-0.0087137 -0.036127 -0.013053"
+        rpy="0 0 0" />
+      <mass
+        value="0.0471" />
+      <inertia
+        ixx="8.9392E-06"
+        ixy="-8.3018E-07"
+        ixz="-1.3278E-07"
+        iyy="1.2231E-05"
+        iyz="7.4504E-07"
+        izz="1.4131E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Back_right1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Back_right1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Joint4; revolute joint between base Link and Link5-->
+  <joint
+    name="Back_right1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.083768 -0.040084 0.029"
+      rpy="0 0 -0.24199" />
+    <parent
+      link="base_link" />
+    <child
+      link="Back_right1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.7854"
+      upper="0.7854"
+      effort="2"
+      velocity="5" />
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!--Link6; Back right flipper-->
+  <link
+    name="Back_right2">
+    <inertial>
+      <origin
+        xyz="-0.013023 -0.015316 -0.0052397"
+        rpy="0 0 0" />
+      <mass
+        value="0.0099911" />
+      <inertia
+        ixx="1.8331E-06"
+        ixy="-1.3351E-06"
+        ixz="5.2365E-08"
+        iyy="4.0494E-06"
+        iyz="-7.3412E-08"
+        izz="5.7801E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Back_right2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Back_right2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Joint5; revolute joint between Link 5 and 6-->
+  <joint
+    name="Back_right2_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.030582 -0.032411"
+      rpy="0.69813 0 0" />
+    <parent
+      link="Back_right1" />
+    <child
+      link="Back_right2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="2"
+      velocity="5" />
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!--Link7; Front left shoulder-->
+  <link
+    name="Front_left1">
+    <inertial>
+      <origin
+        xyz="0.0080805 -0.044921 -0.0032127"
+        rpy="0 0 0" />
+      <mass
+        value="0.047842" />
+      <inertia
+        ixx="1.0755E-05"
+        ixy="1.0675E-06"
+        ixz="-7.7552E-08"
+        iyy="1.1516E-05"
+        iyz="1.852E-06"
+        izz="1.5397E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Front_left1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Front_left1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Joint6; revolute joint between base link and link 7-->
+  <joint
+    name="Front_left1_joint"
+    type="revolute">
+    <origin
+      xyz="0.065905 0.038461 0.029"
+      rpy="0 0 2.1584" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_left1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.6854"
+      upper="0.6854"
+      effort="2"
+      velocity="5" />
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!--Link8; Front left flipper-->
+  <link
+    name="Front_left2">
+    <inertial>
+      <origin
+        xyz="0.018449 -0.024055 -0.0074161"
+        rpy="0 0 0" />
+      <mass
+        value="0.528369" />
+      <inertia
+        ixx="1.0151E-05"
+        ixy="7.9738E-06"
+        ixz="-2.5212E-07"
+        iyy="2.3348E-05"
+        iyz="-4.6947E-07"
+        izz="3.2868E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Front_left2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Front_left2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Joint7; revolute joint between Link 7 and 8-->
+  <joint
+    name="Front_left2_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.042057 -0.020374"
+      rpy="0.69813 0 0" />
+    <parent
+      link="Front_left1" />
+    <child
+      link="Front_left2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="2"
+      velocity="5" />
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!--Link9; Back left shoulder-->
+  <link
+    name="Back_left1">
+    <inertial>
+      <origin
+        xyz="-0.0087137 0.036126 -0.013052"
+        rpy="0 0 0" />
+      <mass
+        value="0.0471" />
+      <inertia
+        ixx="8.9392E-06"
+        ixy="8.304E-07"
+        ixz="-1.3296E-07"
+        iyy="1.223E-05"
+        iyz="-7.4516E-07"
+        izz="1.4132E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Back_left1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Back_left1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Joint8 revolute joint between base link and link 9-->
+  <joint
+    name="Back_left1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.083768 0.040084 0.029"
+      rpy="0 0 0.24199" />
+    <parent
+      link="base_link" />
+    <child
+      link="Back_left1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.7854"
+      upper="0.7854"
+      effort="2"
+      velocity="5" />
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!--Link10;Back left flipper-->
+  <link
+    name="Back_left2">
+    <inertial>
+      <origin
+        xyz="0.010585 0.017092 -0.0052398"
+        rpy="0 0 0" />
+      <mass
+        value="0.0099917" />
+      <inertia
+        ixx="4.6202E-06"
+        ixy="-4.3699E-07"
+        ixz="8.5959E-08"
+        iyy="1.2622E-06"
+        iyz="-2.7328E-08"
+        izz="5.78E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Back_left2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/Back_left2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Joint9; revolute joint betwen Link 9 and 10-->
+  <joint
+    name="Back_left2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.030582 -0.032411"
+      rpy="-0.25187 0.65835 1.1726" />
+    <parent
+      link="Back_left1" />
+    <child
+      link="Back_left2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.2618"
+      upper="0.2618"
+      effort="2"
+      velocity="5" />
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+<!--Sesnor_Link-->
+  <link
+    name="Sensor_link">
+    <inertial>
+      <origin
+        xyz="-2.25214372452731E-05 0.103607028948444 -0.00174327710854269"
+        rpy="0 0 0" />
+      <mass
+        value="0.656382274118652" />
+      <inertia
+        ixx="0.00398589796619268"
+        ixy="6.81523498247126E-07"
+        ixz="7.5942173311683E-08"
+        iyy="0.00261594481266056"
+        iyz="4.49451871288875E-05"
+        izz="0.00597901119561345" />
+    </inertial>
+    
+    
+  </link>
+
+<!--Sensor_Joint-->
+  <joint
+    name="sensor"
+    type="fixed">
+    <origin
+      xyz="0.0975 0 0.005"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Sensor_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <!--Camera Link-->
+  <link
+    name="Camera_link">
+    <inertial>
+      <origin
+        xyz="-2.25214372452731E-05 0.103607028948444 -0.00174327710854269"
+        rpy="0 0 0" />
+      <mass
+        value="0.656382274118652" />
+      <inertia
+        ixx="0.00398589796619268"
+        ixy="6.81523498247126E-07"
+        ixz="7.5942173311683E-08"
+        iyy="0.00261594481266056"
+        iyz="4.49451871288875E-05"
+        izz="0.00597901119561345" />
+    </inertial>
+    
+    
+  </link>
+  <!--Camera_Joint-->
+   <joint
+    name="camera"
+    type="fixed">
+    <origin
+      xyz="0.0975 0 0.005"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <!--Front Right Wheel Link-->
+  <link
+    name="FrontRWheel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.3" />
+      <inertia ixx="0.001" iyy="0.001" izz="0.001" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/FrontRWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/FrontRWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <!--Front Right Wheel Joint-->
+  <joint
+    name="FRWJoint"
+    type="continuous">
+    <origin
+      xyz="0.04 -0.0325 -0.04"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="FrontRWheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+  <!--Front Left Wheel Link-->
+<link
+    name="FrontLWheel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.3" />
+      <inertia ixx="0.001" iyy="0.001" izz="0.001" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/FrontLWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turtle/meshes/visual/FrontLWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--Front Left Wheel Joint-->
+  <joint
+    name="FLWJoint"
+    type="continuous">
+    <origin
+      xyz="0.04 0.0325 -0.04"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="FrontLWheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+  <link name="counter_weight">
+  <inertial>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>  <!-- Adjust position as needed -->
+    <mass value="5"/>  <!-- Adjust mass as needed -->
+    <inertia ixx="0.001" iyy="0.001" izz="0.001"
+             ixy="0.0" ixz="0.0" iyz="0.0"/>
+  </inertial>
+  <visual>
+    <geometry>
+      <sphere radius="0.01"/>  <!-- Small visual indicator -->
+    </geometry>
+  </visual>
+</link>
+
+<joint name="counter_weight_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="counter_weight"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>  <!-- Position as needed -->
+</joint>
+
+
+</robot>
