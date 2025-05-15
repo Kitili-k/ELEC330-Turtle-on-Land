@@ -1,1 +1,36 @@
+# Code Directory Structure
 
+This directory contains all the code-related files for the turtle robot project, organized into three main sections:
+
+## Assignment3Package
+- Contains the latest version of the ROS2 package
+- Represents the final implementation of all robot functionalities
+- Features a complete integration of all components
+- Ready for deployment and demonstration
+
+## Attempts
+This folder documents our development process through various iterations:
+- Early versions of different components:
+  - SLAM implementation attempts
+  - Navigation system development
+  - Visual recognition system iterations
+  - Integration experiments
+- Serves as a development history
+- Contains valuable learning experiences and alternative approaches
+
+## Reference
+Collection of example code and demonstrations:
+- Online community references
+  - Best practice implementations
+  - Community solutions
+- Official ROS2 demos
+  - Navigation examples
+  - SLAM tutorials
+  - Vision processing demonstrations
+- Serves as a learning resource and implementation guide
+
+### Purpose of This Structure
+- Maintains clear separation between final code and development attempts
+- Preserves valuable learning resources and references
+- Documents the development journey from initial attempts to final implementation
+- Provides a comprehensive resource for future development or troubleshooting
