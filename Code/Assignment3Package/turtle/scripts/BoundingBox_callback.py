@@ -50,27 +50,21 @@ class BoundingBoxController(Node):
         
         # get center point directly from center field
         center_x = target_detection.bbox.center.position.x
-        center_y = target_detection.bbox.center.position.y
         width_x = target_detection.bbox.size_x        
-        # self.get_logger().info(f'target center point: ({center_x}, {center_y})')
         
         # calculate control command
-        linear_vel, angular_vel = self.calculate_velocity(center_x, center_y, width_x)
+        linear_vel, angular_vel = self.calculate_velocity(center_x, width_x)
         
         # publish velocity command
         self.publish_velocity(linear_vel, angular_vel)
     
-    def calculate_velocity(self, center_x, center_y, width_x):
+    def calculate_velocity(self, center_x, width_x):
         """calculate robot movement speed based on the center point of the bounding box"""
         # calculate the offset of the center point relative to the image center
         x_offset = center_x - (self.image_width / 2)
         
         # normalize the offset to the range of [-1, 1]
         normalized_x_offset = x_offset / (self.image_width / 2)
-        
-        # calculate the target height (for estimating distance)
-        # the larger the y value, the closer the target is to the bottom of the image
-        normalized_y = center_y / self.image_height
         
         estimate_distance = width_x/(0.4*self.image_width )
         
@@ -95,7 +89,6 @@ class BoundingBoxController(Node):
         msg.angular.z = angular_vel
         
         self.publisher.publish(msg)
-        # self.get_logger().info(f'publish velocity command: linear velocity={linear_vel:.2f}, angular velocity={angular_vel:.2f}')
     
     def stop_robot(self):
         """stop the robot"""

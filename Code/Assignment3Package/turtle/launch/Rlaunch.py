@@ -188,7 +188,7 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
-    
+    # SLAM Toolbox Online Async Launch
     online_async_slam = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
@@ -214,6 +214,7 @@ def generate_launch_description():
         ],
     )
     
+    # Nav2 Navigation Launch
     nav2_navigation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(nav2_launch_dir, 'navigation_launch.py')
@@ -226,6 +227,7 @@ def generate_launch_description():
         }.items()
     )
 
+    # Twist Mux Node    
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
     twist_mux = Node(
             package="twist_mux",
@@ -233,7 +235,8 @@ def generate_launch_description():
             parameters=[twist_mux_params, {'use_sim_time': True},{'use_stamped':False}],
             output='screen',
     )
-    
+
+    # Auto Explore Node
     auto_explore_node = Node(
         package='turtle',
         executable='auto_explore.py',
@@ -293,7 +296,7 @@ def generate_launch_description():
         ),
 
         TimerAction(
-            period=5.0,
+            period=6.0,
             actions=[auto_explore_node]
         ),
     ])

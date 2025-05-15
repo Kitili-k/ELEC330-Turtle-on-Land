@@ -90,7 +90,7 @@ cd ~/your_workspace
 source install/setup.bash
 ros2 launch turtle Rlaunch.py
 ```
-Open another terminal and run the following command:
+If auto explore did not enabled, Open another terminal and run the following command:
 
 ```
 cd ~/your_workspace/src/turtle/scripts
