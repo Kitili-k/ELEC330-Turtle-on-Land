@@ -32,9 +32,6 @@ install(
   config/velocity_publisher.cpp
   launch/Rlaunch.py
   scripts/BoundingBox_callback.py
-  scripts/pid_cmd_vel_controller.py
-  scripts/auto_nevigation.py
-  scripts/target2navgoal.py
   scripts/auto_explore.py
   DESTINATION lib/${PROJECT_NAME}
 )
