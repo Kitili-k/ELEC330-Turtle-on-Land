@@ -1,1 +1,24 @@
+# Bill of Materials (BoM)
 
+## Parts List Documentation
+
+The `Parts_List.xlsx` file in this directory contains a comprehensive bill of materials for manufacturing the turtle robot. This spreadsheet includes detailed information about all components required for the robot's construction:
+
+### Spreadsheet Contents
+- Component model numbers and specifications
+- Purchase links to suppliers
+- Cost estimates for each component
+- Detailed description of component applications and purposes
+
+### Purpose
+This document serves as:
+- A complete shopping list for robot construction
+- A cost estimation tool for project budgeting
+- A reference guide for component replacement or maintenance
+- A detailed breakdown of the robot's hardware requirements
+
+### Usage
+- Use this document for procurement planning
+- Reference when ordering replacement parts
+- Consult for understanding component purposes and applications
+- Budget planning and cost estimation
