@@ -1,46 +1,24 @@
-# turtle_on_land_demo ROS 2 Package Instructions
+# Design Files Directory Structure
 
-This document provides instructions for setting up and running the turtle_on_land_demo ROS 2 package.
+This directory contains all the design-related files for the turtle robot, including 3D models and CAD design files.
 
-## Prerequisites
+## Directory Structure
 
-- ROS 2 installed (Humble or newer recommended)
-- Gazebo simulator installed
-- ros_gz package installed
+### Meshes
+This folder contains STL files used in the robot's URDF definition:
+- Includes collision meshes for physical simulation
+- Contains visual meshes for robot visualization
+- These files are directly referenced in the robot's URDF configuration for both collision detection and visual representation in the simulation environment
 
-## Setup and Build
+### SolidworksFiles
+This folder contains the complete CAD design of the robot:
+- Contains 'Turtle_Raw.zip' - a Pack and Go compressed package from Solidworks
+- The zip file includes all necessary components and assembly files
+- Can be directly used after extraction in Solidworks
+- Maintains all design relationships and references
 
-1. Navigate to your ROS 2 workspace root:
-   ```
-   cd ~/ros2_ws
-   ```
-
-2. Build the package:
-   ```
-   colcon build
-   ```
-
-3. Source the workspace:
-   ```
-   source ~/ros2_ws/install/setup.bash
-   ```
-
-## Running the Demo
-
-1. Launch the simulation:
-   ```
-   ros2 launch turtle_on_land_demo launch.py
-   ```
-
-## Notes
-
-- If you encounter resource path issues, check if the GZ_SIM_RESOURCE_PATH environment variable is set correctly.
-
-## Troubleshooting
-
-If you encounter issues:
-1. Verify all dependencies are correctly installed.
-2. Ensure ROS 2 and Gazebo versions are compatible.
-3. Check ROS 2 and Gazebo log outputs for error messages.
+## Usage Notes
+- For mechanical design review or modifications, use the Solidworks files
+- The Pack and Go format ensures all dependencies are included when sharing the design
 
 
