@@ -58,7 +58,7 @@ Configuration files for various components:
 
 ## Usage
 The package is designed to be launched primarily through the main launch file:
-```bash
+```
 ros2 launch turtle Rlaunch.py
 ```
 
