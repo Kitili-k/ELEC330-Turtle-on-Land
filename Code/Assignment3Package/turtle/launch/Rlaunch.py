@@ -161,10 +161,8 @@ def generate_launch_description():
             '/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',  # re-enable TF bridge
             # system clock
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
-            # '/world/empty/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock',
             '/joint_position_controller@trajectory_msgs/msg/JointTrajectory@gz.msgs.JointTrajectory'
         ],
-        # remappings=[('/world/empty/clock','/clock')],
         output='screen',
         
         parameters=[
@@ -204,19 +202,6 @@ def generate_launch_description():
             'use_sim_time': 'true'
         }.items()
     )
-
-    # Teleop Twist Keyboard Node - use stamped messages
-    teleop_twist = Node(
-        package='teleop_twist_keyboard',
-        executable='teleop_twist_keyboard',
-        name='teleop_twist_keyboard',
-        output='screen',
-        prefix = 'xterm -e',
-        parameters=[
-            {'use_sim_time': use_sim_time}
-        ],
-        arguments=['--ros-args', '-p', 'stamped:=true']
-    )
     
     # Bounding Box Controller Node
     bounding_box_controller = Node(
@@ -241,55 +226,22 @@ def generate_launch_description():
         }.items()
     )
 
-
-    cmd_vel_pid = Node(
-        package='turtle',
-        executable='pid_cmd_vel_controller.py',
-        name='cmd_vel_pid_controller',
-        output='screen',
-        parameters=[{'use_sim_time': False}],
-    )
-
-    auto_navigation = Node(
-        package='turtle',
-        executable='auto_nevigation.py',
-        name='auto_nevigation',
-        output='screen',
-        parameters=[
-            {'use_sim_time': use_sim_time}
-        ],
-    )
-
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
     twist_mux = Node(
             package="twist_mux",
             executable="twist_mux",
             parameters=[twist_mux_params, {'use_sim_time': True},{'use_stamped':False}],
             output='screen',
-        )
-    
-    target_to_nav_goal_node = Node(
-    package='turtle',                    # your package name
-    executable='target_to_nav_goal.py',  # OR the console‑script entry point if you used setup.cfg
-    name='target_to_nav_goal',
-    output='screen',
-    parameters=[
-        {'use_sim_time': use_sim_time},
-        # Optional overrides – these match the defaults in the script
-        # {'target_label': 10},
-        # {'hfov_deg': 60.0},
-        # {'goal_offset': 0.4},
-        ],
     )
-
+    
     auto_explore_node = Node(
-    package='turtle',
-    executable='auto_explore.py',
-    name='auto_explore',
-    output='screen',
-    parameters=[{'use_sim_time': use_sim_time}],
-    prefix='python3 ' + os.path.join(pkg_share, 'scripts', ''),
-)
+        package='turtle',
+        executable='auto_explore.py',
+        name='auto_explore',
+        output='screen',
+        parameters=[{'use_sim_time': use_sim_time}],
+        prefix='python3 ' + os.path.join(pkg_share, 'scripts', ''),
+    )
 
     # Return Launch Description
     return LaunchDescription([
@@ -314,14 +266,7 @@ def generate_launch_description():
             actions=[spawn_entity]
         ),
         bridge,
-        
-        # wait for entity generation before starting bridge
-        # TimerAction(
-        #     period=2.0,
-        #     actions=[bridge]
-        # ),
 
-        
         # wait for bridge node to start before starting TF publisher
         static_base_footprint_link,
         static_sensor_link,
@@ -334,31 +279,21 @@ def generate_launch_description():
         
         # start visualization and control
         launch_rviz_node,
-        # teleop_twist,
         
         # start bounding box controller after all systems are running
         TimerAction(
             period=5.0,
             actions=[bounding_box_controller]
         ),
-        # TimerAction(period=5.0, actions=[cmd_vel_pid]),
         
         # disable Nav2 navigation - comment out temporarily
         TimerAction(
             period=5.0,
             actions=[nav2_navigation]
         ),
-        # TimerAction(
-        #     period=5.0,                
-        #     actions=[target_to_nav_goal_node]
-        # ),
 
         TimerAction(
             period=5.0,
             actions=[auto_explore_node]
         ),
-        # TimerAction(
-        #     period=5.0,
-        #     actions=[auto_navigation]
-        # ),
     ])
