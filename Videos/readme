@@ -1,1 +1,17 @@
+# Assignment 3 Video Documentation
 
+This directory contains demonstration videos for Assignment 3, located in the Assignment3 folder. Below is a description of each video:
+
+## AutoExplore_StuckByOdomDrift.webm
+This video demonstrates a case where odometry drift affects Nav2 costmap, impacting the navigation performance. It showcases how localization errors can influence the robot's navigation capabilities.
+
+## Explore_ParkInFrontOfObject.webm
+This video shows the robot performing autonomous navigation. Upon detecting a target object, the robot successfully navigates towards it and stops in front of the target, demonstrating object detection and precise positioning capabilities.
+
+## GeneralDemonstration.webm
+This video presents a comprehensive demonstration of the robot's capabilities, including:
+- Fully autonomous exploration
+- Target tracking navigation
+- Simultaneous navigation and mapping (SLAM)
+
+The video captures the complete workflow of the robot operating independently to explore its environment, track objectives, and build a map of its surroundings.
