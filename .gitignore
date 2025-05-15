@@ -1,0 +1,8 @@
+# Visual Studio Code config
+.vscode/
+
+# other common files to ignore
+*.log
+.DS_Store
+__pycache__/
+*.pyc 
