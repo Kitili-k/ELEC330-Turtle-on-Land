@@ -19,6 +19,9 @@ This assignment focuses on developing an autonomous robot system with advanced n
 
 The project demonstrates these capabilities through simulated environments where our robot, Shelly, showcases autonomous navigation, object detection, mapping, and safe interaction with its surroundings.
 
+## Navigation result    
+![Navigation result](Reports/Assignment3/supportMaterial/Image/Pasted%20image%20(4).png)
+
 ## GitHub arrangment
 
 - #### Code folder:
