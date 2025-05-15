@@ -77,6 +77,9 @@ colcon build
    - tf2_ros
    - tf2_msgs
 
+5. Auto explore
+    - inspired by https://github.com/AniArka/Autonomous-Explorer-and-Mapper-ros2-nav2
+
 
 ## Run instruction
 
@@ -86,5 +89,11 @@ colcon build
 cd ~/your_workspace
 source install/setup.bash
 ros2 launch turtle Rlaunch.py
+```
+Open another terminal and run the following command:
+
+```
+cd ~/your_workspace/src/turtle/scripts
+ros2 run turtle auto_explore.py
 ```
 
