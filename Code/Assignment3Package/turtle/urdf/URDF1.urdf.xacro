@@ -753,14 +753,14 @@
 
   <link name="counter_weight">
   <inertial>
-    <origin xyz="0 0 0.05" rpy="0 0 0"/>  <!-- Adjust position as needed -->
-    <mass value="5"/>  <!-- Adjust mass as needed -->
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>  
+    <mass value="5"/>  <
     <inertia ixx="0.001" iyy="0.001" izz="0.001"
              ixy="0.0" ixz="0.0" iyz="0.0"/>
   </inertial>
   <visual>
     <geometry>
-      <sphere radius="0.01"/>  <!-- Small visual indicator -->
+      <sphere radius="0.01"/>  
     </geometry>
   </visual>
 </link>
@@ -768,7 +768,7 @@
 <joint name="counter_weight_joint" type="fixed">
   <parent link="base_link"/>
   <child link="counter_weight"/>
-  <origin xyz="0 0 0" rpy="0 0 0"/>  <!-- Position as needed -->
+  <origin xyz="0 0 0" rpy="0 0 0"/>  
 </joint>
 
 
