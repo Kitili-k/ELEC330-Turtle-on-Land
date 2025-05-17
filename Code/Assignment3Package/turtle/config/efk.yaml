@@ -1,0 +1,96 @@
+ekf_filter_node:
+  ros__parameters:
+    # ------------------------------------------------------------------
+    # Core filter settings
+    frequency:          30.0       # filter at 30 Hz
+    two_d_mode:         true       
+    publish_acceleration: true
+    publish_tf:          true
+
+    # Frames
+    map_frame:          map
+    odom_frame:         odom
+    base_link_frame:    base_footprint
+    world_frame:        odom
+
+    # Odometry input
+    odom0:               odom
+    odom0_config:      [ true,  true, false,   # x, y, z
+                         false, false, false,  # roll, pitch, yaw
+                         false, false, false,  # v_x, v_y, v_z
+                         false, false, false,  # a_x, a_y, a_z
+                         false, false, false ] # (remaining rates if any)
+
+    # IMU input (fuse orientation from the IMU)
+    imu0:               imu
+    imu0_config:      [ false, false, false,
+                         true,  true,  true,
+                         false, false, false,
+                         false, false, false,
+                         false, false, false ]
+
+    process_noise_covariance:
+      [ 0.10, 0,    0,    0,    0,    0,
+        0,    0.10, 0,    0,    0,    0,
+        0,    0,    0.10, 0,    0,    0,
+        0,    0,    0,    0.10, 0,    0,
+        0,    0,    0,    0,    0.10, 0,
+        0,    0,    0,    0,    0,    0.10 ]
+
+    
+    measurement_noise_covariance:
+      [ 0.05, 0,    0,    0,    0,    0,
+        0,    0.05, 0,    0,    0,    0,
+        0,    0,    0.05, 0,    0,    0,
+        0,    0,    0,    0.05, 0,    0,
+        0,    0,    0,    0,    0.05, 0,
+        0,    0,    0,    0,    0,    0.05 ]
+
+# ekf_slam_node:
+#   ros__parameters:
+#     # ------------------------------------------------------------------
+#     # Fuse filtered odometry + SLAM pose
+#     frequency:          30.0       # run at 30 Hz (was 20)
+#     two_d_mode:         true
+#     publish_tf:         true
+
+#     map_frame:          map
+#     odom_frame:         odom
+#     base_link_frame:    base_footprint
+#     world_frame:        map
+
+#     # Input 0 = filtered odom from ekf_filter_node
+#     odom0:              /odometry/filtered
+#     odom0_config:     [ true,  true, false,   # x, y, z
+#                         false, false, false,  # r, p, y
+#                         false, false, false,  # v_x, v_y, v_z
+#                         false, false,  true,  # a_x, a_y, a_z (yaw rate fused)
+#                         false, false, false ]
+
+#     # Input 1 = slam_toolbox pose
+#     pose0:              /slam_toolbox/pose
+#     pose0_config:    [ true,  true, false,
+#                         false, false, true,   # fuse x, y, yaw
+#                         false, false, false,
+#                         false, false, false,
+#                         false, false, false ]
+#     odom0_queue_size:   50
+#     pose0_queue_size:   10
+
+#     # Prediction = pretty uncertain
+#     process_noise_covariance:
+#       [ 0.20, 0,    0,    0,    0,    0,
+#         0,    0.20, 0,    0,    0,    0,
+#         0,    0,    0.10, 0,    0,    0,
+#         0,    0,    0,    0.10, 0,    0,
+#         0,    0,    0,    0,    0.10, 0,
+#         0,    0,    0,    0,    0,    0.20 ]
+
+#     # Slam pose trusted strongly for x/y/yaw
+#     measurement_noise_covariance:
+#       [ 0.01, 0,    0,    0,    0,    0,
+#         0,    0.01, 0,    0,    0,    0,
+#         0,    0,    0.02, 0,    0,    0,
+#         0,    0,    0,    0.02, 0,    0,
+#         0,    0,    0,    0,    0.02, 0,
+#         0,    0,    0,    0,    0,    0.02 ]
